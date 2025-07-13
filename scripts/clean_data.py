@@ -1,4 +1,8 @@
-#clean_data.py
+import os
+import sys
+
+# Add the project root to sys.path so 'src' can be found
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.preprocessing import load_rockyou, clean_passwords, save_cleaned_data
 
