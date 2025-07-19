@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split  # For splitting the datase
 from torch.utils.data import Dataset    # Base class for custom datasets
 
 # 1. Load Data
-df = pd.read_csv("/kaggle/input/rockyou-labeled/rockyou_labeled.csv")  # Load the labeled password dataset
+df = pd.read_csv("data\\processed\\rockyou_labeled.csv")  # Load the labeled password dataset
 label_map = {"weak": 0, "medium": 1, "strong": 2}                       # Map text labels to numeric classes
 df = df[df["strength_label"].isin(label_map)]                          # Filter only valid labels
 df["label_id"] = df["strength_label"].map(label_map)                   # Add numeric label column
@@ -59,14 +59,16 @@ model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_l
 
 # Set up training configuration
 training_args = TrainingArguments(
-    output_dir="./results",                    # Directory to save model output
-    evaluation_strategy="epoch",              # Evaluate at the end of each epoch
-    num_train_epochs=3,                       # Train for 3 epochs
-    per_device_train_batch_size=32,           # Training batch size
-    per_device_eval_batch_size=32,            # Evaluation batch size
-    save_strategy="no",                       # Do not save checkpoints
-    logging_dir="./logs",                     # Directory to store logs
-    load_best_model_at_end=False              # Do not load best model after training
+    output_dir="./results",
+    # evaluation_strategy="epoch", # This line caused the error
+    do_eval=True,  # Enable evaluation
+    eval_steps=500, # Evaluate every 500 steps (adjust as needed, or calculate steps per epoch)
+    num_train_epochs=3,
+    per_device_train_batch_size=32,
+    per_device_eval_batch_size=32,
+    save_strategy="no",
+    logging_dir="./logs",
+    load_best_model_at_end=False
 )
 
 # Initialize Hugging Face Trainer
@@ -83,7 +85,7 @@ trainer.train()
 # 5. Save model and test set for future evaluation
 model.save_pretrained("/kaggle/working/bert_model")         # Save the fine-tuned model
 tokenizer.save_pretrained("/kaggle/working/bert_model")     # Save tokenizer used in training
-test_df.to_csv("/kaggle/working/bert_test_set.csv", index=False)  # Save test set to CSV
+test_df.to_csv("data\processed\bert_test_set.csv", index=False)  # Save test set to CSV
 
 # Final output confirmation
 print("✅ Model and tokenizer saved in /kaggle/working/bert_model")
