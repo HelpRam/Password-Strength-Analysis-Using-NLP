@@ -1,5 +1,6 @@
 # Ignore the rockyou.txt file in data/raw
 data/
+models/
 
 # Ignore the NLPassignment.pdf file in ResearchProposal
 ResearchProposal/*.pdf
