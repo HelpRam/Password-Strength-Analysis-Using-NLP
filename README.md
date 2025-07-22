@@ -70,7 +70,6 @@ password-strength-nlp/
   
 ![BERT Loss Curve](https://i.postimg.cc/vZWgMn6R/Screenshot-2025-07-22-201408.png)
 
-### 🔶 BERT Confusion Matrix  
 ![BERT Confusion Matrix](https://i.postimg.cc/L8dYrD5B/Screenshot-2025-07-22-201255.png)
 
 ---
