@@ -67,12 +67,11 @@ password-strength-nlp/
 ---
 
 ## 📊 Visual Results
-
-### 🔷 BERT Loss Curve  
-![BERT Loss Curve](https://i.postimg.cc/qNvMxzLQ/Screenshot-2025-07-22-201408.png)
+  
+![BERT Loss Curve](https://i.postimg.cc/vZWgMn6R/Screenshot-2025-07-22-201408.png)
 
 ### 🔶 BERT Confusion Matrix  
-![BERT Confusion Matrix](https://i.postimg.cc/LnT8Pzzn/Screenshot-2025-07-22-201255.png)
+![BERT Confusion Matrix](https://i.postimg.cc/L8dYrD5B/Screenshot-2025-07-22-201255.png)
 
 ---
 
@@ -90,8 +89,7 @@ password-strength-nlp/
 The app provides an interactive interface where users can input passwords and get predicted strength using the **fine-tuned BERT model**.
 
 ```bash
-cd app/
-streamlit run password_strength_ui.py
+streamlit run app.py
 ```
 
 ---
@@ -119,9 +117,3 @@ streamlit run app/password_strength_ui.py
 MIT License. Feel free to use, cite, or extend the work with credit.
 
 ---
-
-## 👨‍🎓 Author
-
-**A.A.**  
-Master’s in Computer Science, University of London  
-Supervised by: Prof. [Name]
