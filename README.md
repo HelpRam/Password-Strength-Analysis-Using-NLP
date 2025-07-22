@@ -15,7 +15,7 @@ This project presents a **comprehensive, research-driven pipeline** for analyzin
 - Statistical NLP models (`Word2Vec`)
 - Deep Learning Transformers (`BERT`)
 
-The system was developed as part of a **Master’s Research Project** at the **University of London**, targeting practical application and academic depth in cybersecurity and NLP.
+
 
 ---
 
